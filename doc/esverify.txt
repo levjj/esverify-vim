@@ -1,0 +1,4 @@
+Please see the README.md file:
+https://github.com/levjj/esverify-vim
+
+vim:tw=78:ts=8:ft=help:norl:
