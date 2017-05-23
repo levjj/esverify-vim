@@ -11,13 +11,12 @@ let s:save_cpo = &cpo
 set cpo&vim
 
 function! SyntaxCheckers_javascript_esverify_GetLocList() dict
-  let makeprg = self.makeprgBuild({})
+  let makeprg = self.makeprgBuild({ 'args': '-f simple' })
   let errorformat =
         \ '%f:%l:%c: %trror: %m,' .
         \ '%f:%l:%c: %tarning: %m,' .
         \ '%f:%l:%c: %tnfo: %m'
-  let env = { 'ESVERIFY_LOG': '1' }
-  return SyntasticMake({ 'makeprg': makeprg, 'errorformat': errorformat, 'env': env })
+  return SyntasticMake({ 'makeprg': makeprg, 'errorformat': errorformat })
 endfunction
 
 call g:SyntasticRegistry.CreateAndRegisterChecker({
